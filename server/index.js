@@ -44,15 +44,6 @@ app.use( session({
 app.use( passport.initialize() );
 app.use( passport.session() );
 
-// const strategy = new Auth0Strategy({
-//     domain: DOMAIN,
-//     clientID: CLIENT_ID,
-//     clientSecret: CLIENT_SECRET,
-//     callbackURL: CALLBACK_URL,
-//     scope: 'openid profile'   
-// }, ( accessToken, refreshToken, extraParams, profile, done) => done(null, profile) );
-// passport.use( strategy );
-
 passport.use( new Auth0Strategy({
    domain: DOMAIN,
    clientID: CLIENT_ID,
@@ -89,16 +80,17 @@ app.get( '/auth/callback', passport.authenticate( 'auth0', {
     successRedirect: SUCCESS_REDIRECT,
     failureRedirect: FAILURE_REDIRECT
 }))
+app.get( '/auth/logout', (req, res) => {
+    req.logout();
+    res.redirect( RES_REDIRECT );
+})
+
 app.get( '/auth/me', (req, res) => {
     if( req.user ){
         res.status( 200 ).send( req.user );
     } else {
         res.status( 401 ).send( 'You need to log in!' )
     }
-})
-app.get( '/auth/logout', (req, res) => {
-    req.logout();
-    res.redirect( RES_REDIRECT );
 })
 
 // ==================== //
