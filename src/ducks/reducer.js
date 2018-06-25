@@ -9,7 +9,7 @@ const UPDATE_USER_INFO = "UPDATE_USER_INFO";
 
 // ========== ACTION CREATORS ========== //
 
-export function getUserInfo() {
+export function getUserInfoFromServer() {
     const userData = axios.get("/auth/me").then(res => {
         return res.data;
     });
@@ -24,6 +24,7 @@ export function getUserInfo() {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_USER_INFO:
+            
             return [...state, { user: action.payload }];
         default:
             return state;
