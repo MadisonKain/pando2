@@ -19,6 +19,7 @@ class Nav extends React.Component {
             <div className="conditionalNavBar" style={{"padding": "0 40px 0 0"}}>
                 <Link to="/"><p>Home</p></Link>
                 <Link to="/shop"><p>Shop</p></Link>
+                <a href="http://localhost:3021/auth"><p>Login</p></a>
             </div>
         )
         :
