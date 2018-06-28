@@ -4,7 +4,7 @@
     align-items: center;
 }
 .navTitle{
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Fredericka the Great', cursive;
     padding-left: 40px;
     font-size: 50px;
     color: #212b31;
@@ -14,12 +14,19 @@
     height: 80px;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(45deg, #0083B2 70%, #FF9625 40%);
+    /* background: linear-gradient(45deg, #0083B2 70%, #FF9625 40%); */
+    background: #FF9625;
 }
 .navBarContainer p{
     color: #212b31;
     padding-left: 10px;
     font-family: 'Josefin Slab', serif;
+    opacity: 0.6;
+    transition: 0.5s;
+}
+.navBarContainer p:hover{
+    font-size: 20px;
+    opacity: 1;
 }
 
 
